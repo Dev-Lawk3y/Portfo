@@ -1,7 +1,7 @@
 const { spawn } = require("child_process");
 const path = require('path');
 
-const PUBLIC_FILE = "public.css";
+const PUBLIC_FILE = "style.css";
 const PUBLIC_PATH = path.join(__dirname, PUBLIC_FILE);
 
 
