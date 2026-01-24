@@ -1,12 +1,12 @@
 const { spawn } = require("child_process");
 const path = require('path');
 
-const SCRIPT_FILE = "auto.js";
-const SCRIPT_PATH = path.join(__dirname, SCRIPT_FILE);
+const PUBLIC_FILE = "public.css";
+const PUBLIC_PATH = path.join(__dirname, PUBLIC_FILE);
 
 
 function start() {
-    const main = spawn("node", [SCRIPT_PATH], {
+    const main = spawn("node", [PUBLIC_PATH], {
         cwd: __dirname,
         stdio: "inherit",
         shell: true
