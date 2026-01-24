@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Messenger Automation</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://i.imgur.com/mJitU5H.jpeg" type="image/jpeg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Show modal if not previously joined
+    if (!localStorage.getItem("whatsappChannelJoined")) {
+      document.getElementById("whatsapp-modal").style.display = "flex";
+      document.body.style.overflow = "hidden"; // Prevent background scroll
+    }
+    document.getElementById("continue-btn").onclick = function() {
+      localStorage.setItem("whatsappChannelJoined", "yes");
+      document.getElementById("whatsapp-modal").style.display = "none";
+      document.body.style.overflow = ""; // Restore scroll
+    };
+  });
+</script>
+
+    <div id="whatsapp-modal" class="modal">
+  <div class="modal-content">
+    <h2>Follow our WhatsApp Channel for more updates</h2>
+    <p>To access the bot, please join our WhatsApp channel for more updates:</p>
+    <a href="https://whatsapp.com/channel/0029VbBg63W6LwHsRO2Z4r32" target="_blank" class="whatsapp-link">
+      <strong>Join Lawkey Channel</strong>
+    </a>
+    <button id="continue-btn">Continue</button>
+  </div>
+</div>
+    <div class="header/nav">
+<div class="menu-dots">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="bot-status">
+    <button id="bot-status-btn">
+      Bots Online: <span id="bot-count">0</span>
+      <div id="bot-duration">Duration: 00:00:00</div>
+    </button>
+  </div>
+</div>
+    <div class="header">
+      <img src="https://i.imgur.com/MATYWGs.gif" alt="Banner" class="banner" />
+      <img src="https://i.imgur.com/79a9WxS.jpeg" alt="Profile" class="profile-pic" />
+    </div>
+
+  <div class="profile-container">
+      <div class="profile-name">
+        Lawkey Marvluz <i class="fas fa-check-circle verified-icon"></i>
+      </div>
+
+      <p class="warning">
+        Disclaimer!!!... using this autobot can cause suspension, locked of your account, Dev Lawkey suggest to better use your dummy account. If there's a trouble about using this site just message me with no hesitation, thanks and enjoy!.
+      </p>
+    </div>
+
+ <div class="button-container">
+  <a href="https://www.facebook.com/sadlawkey" target="_blank" class="btn">View profile</a>
+</div>
+
+ <div class="button-container">
+  <a href="https://wa.me/+2348160142036" target="_blank" class="btn">Contact Developer's WhatsApp</a>
+</div>
+
+    <div class="container">
+      <h2 class="subtitle">Facebook Appstate</h2>
+      <form id="json-form" onsubmit="submitForm(event)">
+        <textarea
+  id="json-data"
+  style="width:100%;min-width:350px;max-width:800px;min-height:160px;height:200px;font-size:1.1rem;box-sizing:border-box;display:block;margin:0 auto;"
+  placeholder="Paste your appstate here • only c3c fbstate is accepted do not encrypt"></textarea>
+      </form>
+
+      <div id="listOfCommands">
+        <h2 class="subtitle">Select your commands</h2>
+        <button class="btn" onclick="selectAllCommands()">Select all commands</button>
+      </div>
+
+      <div id="listOfCommandsEvent">
+        <h2 class="subtitle">Select your event commands</h2>
+        <button class="btn" onclick="selectAllEvents()">Select all events</button>
+      </div>
+
+      <div id="prefixOfCommands">
+        <h2 class="subtitle">Enter prefix (important)</h2>
+        <input type="text" id="inputOfPrefix" />
+      </div>
+
+      <div id="adminOfCommands">
+        <h2 class="subtitle">Enter UID (important)</h2>
+        <input type="text" id="inputOfAdmin" />
+      </div>
+
+      <label class="terms-check">
+        <input type="checkbox" id="agreeCheckbox" /> I have read and agree to the Terms and Conditions of Notorious Dev Lawkey autobot.
+      </label>
+
+      <div class="text-center">
+        <button class="btn submit-btn" onclick="State()" disabled id="submitButton">Submit</button>
+      </div>
+    </div>
+
+    <div id="audio-container" style="display:none;"></div>
+
+    <div id="result" class="container text-center" style="display: none;"></div>
+
+    <footer class="footer">
+      <p>Time: <span id="time"></span></p>
+      <p>Ping: <span id="ping"></span></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      let audioStarted = false;
+
+      document.addEventListener("click", function () {
+        if (!audioStarted) {
+          const iframe = document.createElement("iframe");
+          iframe.width = "1";
+          iframe.height = "1";
+          iframe.src = "https://www.youtube.com/embed/JdU0gDDCiB8?autoplay=1&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3";
+          iframe.frameBorder = "0";
+          iframe.allow = "autoplay; encrypted-media";
+          iframe.allowFullscreen = true;
+          iframe.style.opacity = "0";
+          iframe.style.position = "absolute";
+          iframe.style.left = "-9999px";
+          document.getElementById("audio-container").appendChild(iframe);
+          audioStarted = true;
+        }
+      });
+    </script>
+  </body>
+</html>
